@@ -1,0 +1,30 @@
+{
+  "name": "weather-app-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octavianCr/Weather-app-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octavianCr/Weather-app-project/issues"
+  },
+  "homepage": "https://github.com/octavianCr/Weather-app-project#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
