@@ -1,30 +1,14 @@
 
 import React, {useEffect, useState} from 'react';
-
+import {Forecast} from "./Forecast"
 
 
 
 function App() {
-  const [city, setCity] = useState('bran');
+  const [city, setCity] = useState('');
   let key = "7fbe27158c9a1686d4802163c2e010e6";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 
-
-
-  // !!!!!!!!!DOES NOT WORK!!!!!!!!!!!!!!!
-
-  // let formNav = document.getElementById("navForm")
-  // let cityEntry = document.getElementById("cityEntry")
-  // let btn = document.getElementById("btn")
-
-  // formNav.addEventListener("submit", function(ev){
-  //   ev.preventDefault()
-  //   console.log(cityEntry.value);
-  //   city = cityEntry.value;
-  //   cityEntry.value = ""
-  // })
-
-    // !!!!!!!!!DOES NOT WORK!!!!!!!!!!!!!!!
 
 
   const searchWeather = (e) => {
@@ -52,20 +36,21 @@ function App() {
 
         let feelsLikeTemp = document.getElementById("feelsLike");
         feelsLikeTemp.textContent =   `Feels like ${Math.round(parseFloat(result.main.feels_like) - 273.15)}°` ;
+
+
     })
   }
 
-  const searchOnEnter = (event) => {
+  const searchOnEnter = (event) => {}
 
-  }
 
   return (
     <>
       <nav className="navigation">
         <form id="navForm" onSubmit={(event) => searchWeather(event)} onKeyPress={(event) => searchOnEnter()}>
-          <input type="text" placeholder="FFFFFFFFFFFFFFFFFFFF" value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
+          <input type="text" placeholder="Enter your city here:" value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
           {/* event => target => value */}
-          <button id="btn">CLICK</button>
+          <button id="btn">Search</button>
         </form>
       </nav>
     
@@ -75,7 +60,7 @@ function App() {
         <div className="weatherBubble__text">
           <span id="cityN">New York</span>
           <span id="Temp">25°</span>
-          <span id="description">Thunderstorm</span>
+          <span id="description" >Thunderstorm</span>
           <span id="feelsLike">Feels like 23°</span>
         </div>
 
@@ -83,6 +68,8 @@ function App() {
           <div id="weatherimg"></div>
         </div>
       </div>
+
+      <Forecast/>
     </>
   );
 
