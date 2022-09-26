@@ -1,6 +1,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {Forecast} from "./Forecast"
+import {HourlyForecast} from "./HourlyForecast"
 
 
 
@@ -9,6 +10,9 @@ function App() {
   let key = "7fbe27158c9a1686d4802163c2e010e6";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 
+  const [feelsLike, setFeelsLike] = useState("21")
+  const [weatherDescription, setWeatherDescription] = useState("sunny");
+  const [weatherTemperature, setWeatherTemperature] = useState("23°")
 
 
   const searchWeather = (e) => {
@@ -28,15 +32,16 @@ function App() {
         let cityNameBottom = document.getElementById("cityN");
         cityNameBottom.textContent = city;
 
-        let temperature = document.getElementById("Temp");
-        temperature.textContent= Math.round(parseFloat(result.main.temp) - 273.15) + "°";
+        let temperature = Math.round(parseFloat(result.main.temp) - 273.15)  + "°" ;
+        setWeatherTemperature(temperature)
+        // temperature.textContent= Math.round(parseFloat(result.main.temp) - 273.15) + "°";
 
-        let desc =document.getElementById("description");
-        desc.textContent = result.weather[0].description;
 
-        let feelsLikeTemp = document.getElementById("feelsLike");
-        feelsLikeTemp.textContent =   `Feels like ${Math.round(parseFloat(result.main.feels_like) - 273.15)}°` ;
+        let desc = result.weather[0].description;
+        setWeatherDescription(desc)
 
+        let feelsLikeTemp =  ` ${Math.round(parseFloat(result.main.feels_like) - 273.15)}°`
+        setFeelsLike(feelsLikeTemp)
 
     })
   }
@@ -59,9 +64,9 @@ function App() {
       <div className="weatherBubble">
         <div className="weatherBubble__text">
           <span id="cityN">New York</span>
-          <span id="Temp">25°</span>
-          <span id="description" >Thunderstorm</span>
-          <span id="feelsLike">Feels like 23°</span>
+          <span id="Temp">{weatherTemperature}</span>
+          <span id="description" >{weatherDescription}</span>
+          <span id="feelsLike">Feels like {feelsLike}</span>
         </div>
 
         <div className="weatherBubble__img">
@@ -69,7 +74,9 @@ function App() {
         </div>
       </div>
 
-      <Forecast/>
+      {/* <Forecast/> */}
+
+      {/* <HourlyForecast/> */}
     </>
   );
 

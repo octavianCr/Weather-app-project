@@ -15,10 +15,11 @@ export function Forecast() {
         dataType: 'json',
     }) 
     .then(resp =>{
-        return resp.json();
+        // return resp.json();
     })
     .then(result =>{
-        console.log(result);})
+        console.log(result);
+    })
 
         return(
             <>

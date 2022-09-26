@@ -1,0 +1,7 @@
+https://pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}
+https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${key}
+
+
+
+
+http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${ApiCall}
