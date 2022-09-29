@@ -49,10 +49,19 @@ function App() {
   const searchOnEnter = (event) => {}
 
 
+    useEffect(()=>{
+      let Test = weatherDescription.includes("clear sky")
+      if(Test){
+        console.log("f");
+      }
+    },[weatherDescription])
+
+
+
   return (
     <>
       <nav className="navigation">
-        <form id="navForm" onSubmit={(event) => searchWeather(event)} onKeyPress={(event) => searchOnEnter()}>
+        <form id="navForm" onSubmit={(event) => searchWeather(event)} >
           <input type="text" placeholder="Enter your city here:" value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
           {/* event => target => value */}
           <button id="btn">Search</button>
@@ -76,7 +85,7 @@ function App() {
 
       {/* <Forecast/> */}
 
-      {/* <HourlyForecast/> */}
+      <HourlyForecast FR={city}/>
     </>
   );
 
