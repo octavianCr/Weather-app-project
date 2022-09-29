@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.a3892fbe.css",
-    "main.js": "/react-gh-pages/static/js/main.e9f5856d.js",
-    "static/js/787.d7418897.chunk.js": "/react-gh-pages/static/js/787.d7418897.chunk.js",
-    "static/media/sun.svg": "/react-gh-pages/static/media/sun.96443c2784c08cbfaa6f.svg",
-    "index.html": "/react-gh-pages/index.html",
-    "main.a3892fbe.css.map": "/react-gh-pages/static/css/main.a3892fbe.css.map",
-    "main.e9f5856d.js.map": "/react-gh-pages/static/js/main.e9f5856d.js.map",
-    "787.d7418897.chunk.js.map": "/react-gh-pages/static/js/787.d7418897.chunk.js.map"
+    "main.css": "/Weather-app-project/static/css/main.6089017f.css",
+    "main.js": "/Weather-app-project/static/js/main.cdc5dd97.js",
+    "static/js/787.d7418897.chunk.js": "/Weather-app-project/static/js/787.d7418897.chunk.js",
+    "static/media/sun.svg": "/Weather-app-project/static/media/sun.96443c2784c08cbfaa6f.svg",
+    "index.html": "/Weather-app-project/index.html",
+    "main.6089017f.css.map": "/Weather-app-project/static/css/main.6089017f.css.map",
+    "main.cdc5dd97.js.map": "/Weather-app-project/static/js/main.cdc5dd97.js.map",
+    "787.d7418897.chunk.js.map": "/Weather-app-project/static/js/787.d7418897.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3892fbe.css",
-    "static/js/main.e9f5856d.js"
+    "static/css/main.6089017f.css",
+    "static/js/main.cdc5dd97.js"
   ]
 }
