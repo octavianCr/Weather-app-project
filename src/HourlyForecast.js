@@ -3,22 +3,22 @@
     import "./styles/HourlyForecast.scss";
 
     export function HourlyForecast({FR}) {
-        let city = FR;
-        let key = "87788a63bed58c4eaf0dcde5024e1e46";
+        // let city = FR;
+        const key = "87788a63bed58c4eaf0dcde5024e1e46";
         const ApiCall = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
         // const ApiSecondTry = `https://api.openweathermap.org/data/2.5/forecast?q=Prague&appid=87788a63bed58c4eaf0dcde5024e1e46`;
 
-        let [tempForecast, setTempForecast] = useState("00");
-        let [descriptionForecast, setDescriptionForecast] = useState("rain");
+        const [tempForecast, setTempForecast] = useState("00");
+        const [descriptionForecast, setDescriptionForecast] = useState("rain");
 
-        let [tempForecast2, setTempForecast2] = useState("00");
-        let [descriptionForecast2, setDescriptionForecast2] = useState("rain");
+        const [tempForecast2, setTempForecast2] = useState("00");
+        const [descriptionForecast2, setDescriptionForecast2] = useState("rain");
 
-        let [tempForecast3, setTempForecast3] = useState("00");
+        const [tempForecast3, setTempForecast3] = useState("00");
         let [descriptionForecast3, setDescriptionForecast3] = useState("rain");
 
-        let timeFr = new Date();
-        let hour = timeFr.getHours();
+        const timeFr = new Date();
+        const hour = timeFr.getHours();
         
 
         const fetchForecast = ()=>{
