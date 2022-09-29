@@ -1,33 +1,129 @@
 
+    import React, {useState, useEffect} from 'react';
+    import "./styles/HourlyForecast.scss";
 
-    import React, {useState, useEffect} from 'react'
+    export function HourlyForecast({FR}) {
+        let city = FR;
+        let key = "87788a63bed58c4eaf0dcde5024e1e46";
+        const ApiCall = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
+        // const ApiSecondTry = `https://api.openweathermap.org/data/2.5/forecast?q=Prague&appid=87788a63bed58c4eaf0dcde5024e1e46`;
 
-    export const HourlyForecast = () => {
-        let city = "Prague"
-        let key = "87788a63bed58c4eaf0dcde5024e1e46"
-        const ApiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`;
-        // http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${ApiCall}
-        // https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${key}
+        let [tempForecast, setTempForecast] = useState("00");
+        let [descriptionForecast, setDescriptionForecast] = useState("rain");
+
+        let [tempForecast2, setTempForecast2] = useState("00");
+        let [descriptionForecast2, setDescriptionForecast2] = useState("rain");
+
+        let [tempForecast3, setTempForecast3] = useState("00");
+        let [descriptionForecast3, setDescriptionForecast3] = useState("rain");
+
+        let timeFr = new Date();
+        let hour = timeFr.getHours();
+        
+
+        const fetchForecast = ()=>{
+            fetch(ApiCall, {
+                method: 'get',
+                dataType: 'json',
+            }) 
 
 
-    // useEffect(() => {
-    //     fetch(ApiCall)
-    //     .then((response) => response.json())
-    //     .then((actualData) => console.log(actualData));
-    // }, []);
+            .then(resp =>{
+                return resp.json();
+            })
 
-    const fetchApi = ()=> {
-        fetch(ApiCall)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+            .then(result =>{
+                let timeIndex = 0;
+                let timeIndexSecond = 1;
+                let timeIndexTrd = 2;
+
+                if(timeIndex !== null){
+                    timeIndex = hour;
+                    timeIndexSecond += hour;
+                    timeIndexTrd += hour;
+                }else{
+                    timeIndex = 0
+                    timeIndexSecond = 1
+                    timeIndexTrd = 7
+                }
+
+
+                console.log(result);
+                let calculateTemp = Math.round(parseFloat(result.list[timeIndex].main.temp) - 273.15)
+                let descFr = result.list[timeIndex].weather[0].description
+                setTempForecast(calculateTemp)
+                setDescriptionForecast(descFr)
+
+                let calculateTemp2 = Math.round(parseFloat(result.list[timeIndexSecond].main.temp) - 273.15)
+                let descFr2 = result.list[timeIndexSecond].weather[0].description
+                setTempForecast2(calculateTemp)
+                setDescriptionForecast2(descFr)
+
+                let calculateTemp3 = Math.round(parseFloat(result.list[timeIndex].main.temp) - 273.15)
+                let descFr3 = result.list[timeIndex].weather[0].description
+                setTempForecast3(calculateTemp)
+                setDescriptionForecast3(descFr)
+
+
+            })
+        }
+
+
+
+        return (
+            <>
+            <div className='HourlyForecastContainer'>
+                <div className="Hourly" onClick={()=> fetchForecast()}>
+                    <div className='Hourly__img'></div>
+                    <div className='Hourly__txt'>
+                        <span> {hour}:00</span>
+                        <span>{tempForecast}°</span>
+                        <span>{descriptionForecast}</span>
+                    </div>
+                </div>
+
+                <div className="Hourly" onClick={()=> fetchForecast()}>
+                    <div className='Hourly__img'></div>
+                    <div className='Hourly__txt'>
+                        <span> {hour + 1}:00</span>
+                        <span>{tempForecast2}°</span>
+                        <span>{descriptionForecast2}</span>
+                    </div>
+                </div>
+
+                <div className="Hourly" onClick={()=> fetchForecast()}>
+                    <div className='Hourly__img'></div>
+                    <div className='Hourly__txt'>
+                        <span> {hour + 2}:00</span>
+                        <span>{tempForecast2}°</span>
+                        <span>{descriptionForecast2}</span>
+                    </div>
+                </div>
+
+            </div>
+            </>
+        )
+
     }
+        
 
-    fetchApi()
+    
 
-    return (
-        <>
-        <button>FFFFFFFFFFFFFF</button>
-        </>
-    )
-    }
+
+    // return (
+    //     <>
+    //     <div className='HourlyForecastContainer'>
+    //         <div className="Hourly" onClick={()=> fetchForecast()}>
+    //             <div className='Hourly__img'></div>
+    //             <div className='Hourly__txt'>
+    //                 <span> time</span>
+    //                 <span>{tempForecast}°</span>
+    //                 <span>desc</span>
+    //             </div>
+    //         </div>
+    //     </div>
+    //     </>
+    // )
+
+    // }
 
