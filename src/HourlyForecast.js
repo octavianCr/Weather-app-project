@@ -3,7 +3,7 @@
     import "./styles/HourlyForecast.scss";
 
     export function HourlyForecast({FR}) {
-        // let city = FR;
+        let city = FR;
         const key = "87788a63bed58c4eaf0dcde5024e1e46";
         const ApiCall = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
         // const ApiSecondTry = `https://api.openweathermap.org/data/2.5/forecast?q=Prague&appid=87788a63bed58c4eaf0dcde5024e1e46`;

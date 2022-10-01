@@ -60,32 +60,35 @@ function App() {
 
   return (
     <>
-      <nav className="navigation">
-        <form id="navForm" onSubmit={(event) => searchWeather(event)} >
-          <input type="text" placeholder="Enter your city here:" value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
-          {/* event => target => value */}
-          <button id="btn">Search</button>
-        </form>
-      </nav>
-    
-      <h1 className="city-n " id="cityName">New York</h1>
 
-      <div className="weatherBubble">
-        <div className="weatherBubble__text">
-          <span id="cityN">New York</span>
-          <span id="Temp">{weatherTemperature}</span>
-          <span id="description" >{weatherDescription}</span>
-          <span id="feelsLike">Feels like {feelsLike}</span>
+        <nav className="navigation">
+          <form id="navForm" onSubmit={(event) => searchWeather(event)} >
+            <input type="text" placeholder="Enter your city here:" value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
+            {/* event => target => value */}
+            <button id="btn">Search</button>
+          </form>
+        </nav>
+
+        <h1 className="city-n " id="cityName">New York</h1>
+
+    <div className="design-container">
+
+        <div className="weatherBubble">
+          <div className="weatherBubble__text">
+            <span id="cityN">New York</span>
+            <span id="Temp">{weatherTemperature}</span>
+            <span id="description" >{weatherDescription}</span>
+            <span id="feelsLike">Feels like {feelsLike}</span>
+          </div>
+
+          <div className="weatherBubble__img">
+            <div id="weatherimg"></div>
+          </div>
         </div>
 
-        <div className="weatherBubble__img">
-          <div id="weatherimg"></div>
-        </div>
+        <HourlyForecast FR={city}/>
+
       </div>
-
-      {/* <Forecast/> */}
-
-      <HourlyForecast FR={city}/>
     </>
   );
 
