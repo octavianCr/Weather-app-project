@@ -2,12 +2,13 @@
 .HourlyForecastContainer{
     display: flex;
     flex-direction: row;
-    border:red solid 2px ;
+    width: 50%;
+    justify-content: space-between;
 }
 
 
 .Hourly{
-    border: blue solid 3px;
+    // border: blue solid 3px;
     background: #FFAC88;
     border-radius: 29.8758px;
     height:264.25px;
@@ -17,13 +18,18 @@
     align-items: center;
 
         &__img{
-            border: rgb(40, 40, 134) solid 3px;
+            // border: rgb(40, 40, 134) solid 3px;
             width: 110%;
             height: 50%;
+
+            >:nth-child(1){
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &__txt{
-            border: rgb(40, 40, 134) solid 3px;
+            // border: rgb(40, 40, 134) solid 3px;
             width: 100%;
             height: 50%;
             display: flex;

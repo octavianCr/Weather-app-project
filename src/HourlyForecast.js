@@ -1,6 +1,7 @@
 
     import React, {useState, useEffect} from 'react';
     import "./styles/HourlyForecast.scss";
+    import   sun from "./styles/styleImg/sun.svg"
 
     export function HourlyForecast({FR}) {
         let city = FR;
@@ -48,7 +49,7 @@
                 }
 
 
-                console.log(result);
+                // console.log(result);
                 let calculateTemp = Math.round(parseFloat(result.list[timeIndex].main.temp) - 273.15)
                 let descFr = result.list[timeIndex].weather[0].description
                 setTempForecast(calculateTemp)
@@ -74,7 +75,9 @@
             <>
             <div className='HourlyForecastContainer'>
                 <div className="Hourly" onClick={()=> fetchForecast()}>
-                    <div className='Hourly__img'></div>
+                    <div className='Hourly__img'>
+                        <img src={sun} />
+                    </div>
                     <div className='Hourly__txt'>
                         <span> {hour}:00</span>
                         <span>{tempForecast}°</span>
@@ -83,7 +86,9 @@
                 </div>
 
                 <div className="Hourly" onClick={()=> fetchForecast()}>
-                    <div className='Hourly__img'></div>
+                <div className='Hourly__img'>
+                        <img src={sun} />
+                    </div>
                     <div className='Hourly__txt'>
                         <span> {hour + 1}:00</span>
                         <span>{tempForecast2}°</span>
@@ -92,7 +97,9 @@
                 </div>
 
                 <div className="Hourly" onClick={()=> fetchForecast()}>
-                    <div className='Hourly__img'></div>
+                <div className='Hourly__img'>
+                        <img src={sun} />
+                    </div>
                     <div className='Hourly__txt'>
                         <span> {hour + 2}:00</span>
                         <span>{tempForecast2}°</span>
