@@ -13,6 +13,7 @@
     border-radius: 29.8758px;
     height:264.25px;
     width: 179.76px;
+    min-width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,4 +38,37 @@
             align-items: center;
             justify-content: space-evenly;
         }
+}
+
+
+@media screen and (max-width: 480px){
+    .HourlyForecastContainer{
+        align-self: center;
+        flex-direction: column;
+        margin-top: 17px;
+        gap: 15px;
+    }
+
+    .Hourly{
+        width: 70vw;
+    }
+}
+
+
+@media screen and (max-width: 1022px){
+    .HourlyForecastContainer{
+        margin-top: 17px;
+        gap: 15px;
+    }
+
+    .Hourly{
+        width: 70vw;
+    }
+}
+
+
+@media screen and (max-width: 1000px){
+    .HourlyForecastContainer{
+        margin-left: -27vw;
+    }
 }

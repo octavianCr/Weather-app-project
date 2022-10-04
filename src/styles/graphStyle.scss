@@ -37,3 +37,22 @@ $font:'Roboto', sans-serif;
     }
 }
 
+
+
+
+@media screen and (max-width: 480px){
+    .graph{
+        &__content{
+            margin: 30px 0 300px 0;
+            flex-direction: column;
+            gap :30px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 890px){
+    .graph{
+        width: 100vw;
+    }
+}

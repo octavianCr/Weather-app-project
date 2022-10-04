@@ -143,3 +143,26 @@ body{
         height: 90%;
     }
 }
+
+
+
+@media screen and (max-width: 1022px){
+    .design-container{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .design-container{
+        flex-direction: column;
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .weatherBubble{
+    width: 100vw;
+    }
+}
