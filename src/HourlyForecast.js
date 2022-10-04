@@ -2,6 +2,10 @@
     import React, {useState, useEffect} from 'react';
     import "./styles/HourlyForecast.scss";
     import   sun from "./styles/styleImg/sun.svg"
+    import rain from "./styles/styleImg/rain.svg"
+    import thunderstorm from "./styles/styleImg/thunder.svg"
+    import loneCloud from "./styles/styleImg/loneCloud.svg"
+
 
     export function HourlyForecast({FR}) {
         let city = FR;
@@ -17,6 +21,8 @@
 
         const [tempForecast3, setTempForecast3] = useState("00");
         let [descriptionForecast3, setDescriptionForecast3] = useState("rain");
+
+        const [statusImg, setStatusImg] = useState(sun);
 
         const timeFr = new Date();
         const hour = timeFr.getHours();
@@ -69,6 +75,25 @@
             })
         }
 
+            useEffect(()=>{
+                let rainCheck = descriptionForecast.includes("rain")
+                let thunderCheck = descriptionForecast.includes("thunder")
+                let sunCheck = descriptionForecast.includes("sun")
+                if(rainCheck){
+                console.log("f");
+                setStatusImg(rain);
+                }else if(thunderCheck){
+                console.log("f");
+                setStatusImg(thunderstorm);
+                }else if(sunCheck){
+                console.log("f");
+                setStatusImg(sun);
+                }else{
+                setStatusImg(loneCloud);
+                }
+        
+            },[descriptionForecast])
+
 
 
         return (
@@ -76,7 +101,7 @@
             <div className='HourlyForecastContainer'>
                 <div className="Hourly" onClick={()=> fetchForecast()}>
                     <div className='Hourly__img'>
-                        <img src={sun} />
+                        <img src={statusImg} />
                     </div>
                     <div className='Hourly__txt'>
                         <span> {hour}:00</span>
@@ -87,7 +112,7 @@
 
                 <div className="Hourly" onClick={()=> fetchForecast()}>
                 <div className='Hourly__img'>
-                        <img src={sun} />
+                        <img src={statusImg} />
                     </div>
                     <div className='Hourly__txt'>
                         <span> {hour + 1}:00</span>
@@ -98,7 +123,7 @@
 
                 <div className="Hourly" onClick={()=> fetchForecast()}>
                 <div className='Hourly__img'>
-                        <img src={sun} />
+                        <img src={statusImg} />
                     </div>
                     <div className='Hourly__txt'>
                         <span> {hour + 2}:00</span>

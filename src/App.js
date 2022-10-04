@@ -2,9 +2,16 @@
 import React, {useEffect, useState} from 'react';
 import {Forecast} from "./Forecast"
 import {HourlyForecast} from "./HourlyForecast"
-import   sun from "./styles/styleImg/sun.svg"
+
+
+import  sun from "./styles/styleImg/sun.svg"
+import rain from "./styles/styleImg/rain.svg"
+import thunderstorm from "./styles/styleImg/thunder.svg"
+import loneCloud from "./styles/styleImg/loneCloud.svg"
+
 import   graph from "./styles/styleImg/Vector4.svg"
 import   "./styles/graphStyle.scss"
+
 
 
 
@@ -14,20 +21,16 @@ function App() {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 
   const [feelsLike, setFeelsLike] = useState("21")
-  const [weatherDescription, setWeatherDescription] = useState("sunny");
+  const [weatherDescription, setWeatherDescription] = useState("sun");
   const [weatherTemperature, setWeatherTemperature] = useState("23°")
   const [wind, setWind] = useState("999km/h");
-  // const [currentDate, steCurrentDate] = useState("MOnaday,28 April")
   const [humidity, setHumidity] = useState("77%")
-
-
-
-
+  const [statusImg, setStatusImg] = useState(sun)
+  console.log(statusImg);
   const d = new Date();
   const dComplete = d.getFullYear() + "/" + d.getMonth() + "/" + d.getDay() + ".";
-  // const dCompleteStr = String(dComplete)
-  // console.log(dCompleteStr);
-  // steCurrentDate(dCompleteStr);
+
+
 
 
   const searchWeather = (e) => {
@@ -41,12 +44,6 @@ function App() {
   })
   .then(result =>{
       console.log(result);
-        // let cityNameTop = document.getElementById("cityName");
-        // cityNameTop.textContent = city;
-
-        // let cityNameBottom = document.getElementById("cityN");
-        // cityNameBottom.textContent = city;
-
         let temperature = Math.round(parseFloat(result.main.temp) - 273.15)  + "°" ;
         setWeatherTemperature(temperature)
 
@@ -69,10 +66,22 @@ function App() {
 
 
     useEffect(()=>{
-      let Test = weatherDescription.includes("clear sky")
-      if(Test){
+      let rainCheck = weatherDescription.includes("rain")
+      let thunderCheck = weatherDescription.includes("thunder")
+      let sunCheck = weatherDescription.includes("sun")
+      if(rainCheck){
         console.log("f");
+        setStatusImg(rain);
+      }else if(thunderCheck){
+        console.log("f");
+        setStatusImg(thunderstorm);
+      }else if(sunCheck){
+        console.log("f");
+        setStatusImg(sun);
+      }else{
+        setStatusImg(loneCloud);
       }
+
     },[weatherDescription])
 
 
@@ -101,8 +110,7 @@ function App() {
           </div>
 
           <div className="weatherBubble__img">
-            {/* <div id="weatherimg">{}</div> */}
-            <img src={sun}></img>
+            <img src={statusImg}></img>
           </div>
         </div>
 
