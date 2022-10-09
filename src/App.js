@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {Forecast} from "./Forecast"
 import {HourlyForecast} from "./HourlyForecast"
+import CityButton from './components/CityButton';
 
 
 import  sun from "./styles/styleImg/sun.svg"
@@ -93,7 +94,8 @@ function App() {
           <form id="navForm" onSubmit={(event) => searchWeather(event)} >
             <input type="text" placeholder="Enter your city here..." value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
             {/* event => target => value */}
-            <button id="btn">Search</button>
+            {/* <button id="btn">Search</button> */}
+            <CityButton/>
           </form>
         </nav>
 
