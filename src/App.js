@@ -94,8 +94,8 @@ function App() {
           <form id="navForm" onSubmit={(event) => searchWeather(event)} >
             <input type="text" placeholder="Enter your city here..." value={city} id="cityEntry" onChange={(event) => setCity(event.target.value)}></input> 
             {/* event => target => value */}
-            {/* <button id="btn">Search</button> */}
-            <CityButton/>
+            <button id="btn">Search</button>
+            {/* <CityButton/> */}
           </form>
         </nav>
 
@@ -116,7 +116,7 @@ function App() {
           </div>
         </div>
 
-        <HourlyForecast FR={city}/>
+        <HourlyForecast city={city}/>
 
       </div>
 
